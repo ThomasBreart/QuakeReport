@@ -35,9 +35,11 @@ public final class QueryUtils {
     }
 
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
+        Log.v(LOG_TAG, "Here are the fetchEarthquakeData !!!");
         URL url = createUrl(requestUrl);
         String jsonResponse = "";
   //      Log.v("EarthquakeAsyncTask", "start");
+
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
