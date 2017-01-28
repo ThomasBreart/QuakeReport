@@ -35,10 +35,9 @@ public final class QueryUtils {
     }
 
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
-        Log.v(LOG_TAG, "Here are the fetchEarthquakeData !!!");
+    //    Log.v(LOG_TAG, "Here are the fetchEarthquakeData !!!");
         URL url = createUrl(requestUrl);
         String jsonResponse = "";
-  //      Log.v("EarthquakeAsyncTask", "start");
 
         try {
             jsonResponse = makeHttpRequest(url);
@@ -46,11 +45,7 @@ public final class QueryUtils {
             Log.e("EarthquakeAsyncTask", "IOException for makeHttpRequest: ");
             e.printStackTrace();
         }
-  //      Log.v("EarthquakeAsyncTask", "mid");
-
         List<Earthquake> earthquakes = extractEarthquakes(jsonResponse);
-   //     Log.v("EarthquakeAsyncTask", "end");
-
         return earthquakes;
     }
 
@@ -140,7 +135,6 @@ public final class QueryUtils {
                 long time = properties.getLong("time");
                 String url = properties.getString("url");
                 earthquakes.add(new Earthquake(place, mag, time, url));
-           //     Log.d("QueryUtils", "test!");
                 ++i;
             }
         } catch (JSONException e) {
@@ -149,7 +143,6 @@ public final class QueryUtils {
             // with the message from the exception.
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
-
         // Return the list of earthquakes
         return earthquakes;
     }

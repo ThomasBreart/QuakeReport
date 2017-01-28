@@ -94,7 +94,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
 
     @Override
     public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle) {
-        Log.v(LOG_TAG, "Here are the OnCreateLoarder !!!");
+      //  Log.v(LOG_TAG, "Here are the OnCreateLoarder !!!");
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String minMagnitude = sharedPrefs.getString(
                 getString(R.string.settings_min_magnitude_key),
@@ -109,13 +109,13 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         uriBuilder.appendQueryParameter("format", "geojson");
         uriBuilder.appendQueryParameter("limit", "10");
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        uriBuilder.appendQueryParameter("orderby", "time");
+        uriBuilder.appendQueryParameter("orderby", orderBy);
         return new EarthquakeLoader(EarthquakeActivity.this, uriBuilder.toString());
     }
 
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
-        Log.v(LOG_TAG, "Here are the OnLoadFinished !!!");
+   //     Log.v(LOG_TAG, "Here are the OnLoadFinished !!!");
         mProgressBar.setVisibility(View.GONE);
         mEmptyStateTextView.setText(R.string.no_earthquakes);
         mAdapter.clear();
@@ -126,7 +126,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
 
     @Override
     public void onLoaderReset(Loader<List<Earthquake>> loader) {
-        Log.v(LOG_TAG, "Here are the OnLoaderReset !!!");
+     //   Log.v(LOG_TAG, "Here are the OnLoaderReset !!!");
         mAdapter.clear();
     }
 

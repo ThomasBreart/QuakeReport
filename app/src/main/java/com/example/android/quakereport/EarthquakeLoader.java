@@ -17,19 +17,19 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
 
     public EarthquakeLoader(Context context, String url) {
         super(context);
-        Log.v(LOG_TAG, "Here are the constructor of EarthquakeLoader !!!");
+       // Log.v(LOG_TAG, "Here are the constructor of EarthquakeLoader !!!");
         mUrl = url;
     }
 
     @Override
     protected void onStartLoading() {
-        Log.v(LOG_TAG, "Here are the onStartLoading !!!");
+     //   Log.v(LOG_TAG, "Here are the onStartLoading !!!");
         forceLoad();
     }
 
     @Override
     public List<Earthquake> loadInBackground() {
-        Log.v(LOG_TAG, "Here are the loadInBackground !!!");
+     //   Log.v(LOG_TAG, "Here are the loadInBackground !!!");
         if (mUrl == null) {
             return null;
         }
